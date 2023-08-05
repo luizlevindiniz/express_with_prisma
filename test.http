@@ -1,0 +1,29 @@
+GET http://localhost:3001/notes
+
+###
+
+GET http://localhost:3001/notes/2
+
+###
+
+POST http://localhost:3001/notes
+Content-Type: application/json
+
+{
+  "title": "Another Note",
+  "content": "This is a new note."
+}
+
+###
+
+PUT http://localhost:3001/notes/1
+Content-Type: application/json
+
+{
+  "title": "Updated Note",
+  "content": "This is an updated note."
+}
+
+###
+
+DELETE http://localhost:3001/notes/{noteId}
