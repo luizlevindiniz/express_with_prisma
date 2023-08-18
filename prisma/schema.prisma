@@ -8,7 +8,36 @@ datasource db {
 }
 
 model Note {
-  id    Int     @id @default(autoincrement())
-  title String  @unique
-  content  String?
+  id      String  @id @default(uuid())
+  title   String  @unique
+  content String?
+}
+
+model Ticket {
+  id            String  @id @default(uuid())
+  content       String?
+  ticketOwner   User    @relation(fields: [ticketOwnerId], references: [id])
+  ticketOwnerId String
+  event         Event   @relation(fields: [eventId], references: [id])
+  eventId       String
+  price         Float
+}
+
+model Event {
+  id           String   @id @default(uuid())
+  title        String
+  location     String
+  date         String
+  content      String?
+  eventOwner   User     @relation(fields: [eventOwnerId], references: [id])
+  eventOwnerId String
+  tickets      Ticket[]
+}
+
+model User {
+  id      String   @id @default(uuid())
+  email   String   @unique
+  name    String
+  events  Event[]
+  tickets Ticket[]
 }

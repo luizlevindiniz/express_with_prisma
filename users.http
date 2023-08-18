@@ -1,0 +1,30 @@
+GET http://localhost:3001/users
+
+###
+
+GET http://localhost:3001/users/9082657d-deb1-4ced-80a5-87f6a7d59051
+
+###
+
+POST http://localhost:3001/users
+Content-Type: application/json
+
+{
+  "name":"fer",
+  "email":"ferr@gmail.com"
+  
+}
+
+###
+
+PUT http://localhost:3001/users/9082657d-deb1-4ced-80a5-87f6a7d59051
+Content-Type: application/json
+
+{
+  "name": "Updated Luw",
+  "email":"ld97@gmail.com"
+}
+
+###
+
+DELETE http://localhost:3001/users/{userId}
